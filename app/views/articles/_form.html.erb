@@ -1,0 +1,22 @@
+<%= form_with model: @article do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br/>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <br/>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <br/>
+
+  <% if f.object.errors[:content].present? %>
+    <span>
+      <%= f.object.errors[:content].to_sentence %>
+    </span>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
+<%= link_to 'Back to articles', :articles %>
