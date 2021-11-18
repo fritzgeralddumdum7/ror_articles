@@ -1,0 +1,27 @@
+= form_with model: @article do |f|
+  = f.label :title
+  = f.text_field :title
+  %br
+
+  - if f.object.errors[:title].present?
+    %span= f.object.errors[:title].to_sentence
+
+  = f.label :author
+  = f.text_field :author
+  %br
+
+  - if f.object.errors[:author].present?
+    %span= f.object.errors[:author].to_sentence
+
+  = f.label :content
+  = f.text_area :content
+  %br
+
+  - if f.object.errors[:content].present?
+    %span= f.object.errors[:content].to_sentence
+
+  = f.submit
+  %br
+
+= link_to articles_path do
+  Back to index
