@@ -1,0 +1,20 @@
+%h2 Article
+= @article.content
+
+%hr
+
+%table
+  %thead
+    %th Comment Section
+    %th Actions
+  %tbody
+    - @comments.each do |comment|
+      %tr
+        %td 
+          = comment.content
+        %td 
+          = link_to 'Edit', edit_article_comment_path(@article, comment)
+        %td 
+          = link_to 'Delete', article_comment_path(@article, comment), method: :delete, data: { confirm: "Are you sure?" }
+
+= render 'form'
